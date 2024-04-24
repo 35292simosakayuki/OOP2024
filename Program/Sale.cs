@@ -1,4 +1,4 @@
-﻿namespace Program {
+﻿namespace SalesCounter {
     internal class Sale {
         public string ShopName { get; set; }
         public string ProductCategory { get; set; }
