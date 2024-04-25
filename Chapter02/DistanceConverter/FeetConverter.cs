@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DistanceConverter {
     public static class FeetConverter {
-        private const static readonly double ratio = 0.3048;
+        public static readonly double ratio = 0.3048;
         
         public static double FromMeter(double meter) {
             return meter/0.3048;
