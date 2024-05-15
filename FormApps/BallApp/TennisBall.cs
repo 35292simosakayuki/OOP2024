@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BallApp {
     internal class TennisBall : Obj {
-        Random rsandom = new Random();
+        Random random = new Random();
 
         public static int Count { get; set; }
         public TennisBall(double xp, double yp)
@@ -15,12 +15,12 @@ namespace BallApp {
 
 
 
-            MoveX = random.Next(-13.25); //移動量設定
-            MoveY = random.Next(-13.25);
+            MoveX = random.Next(-13,25); //移動量設定
+            MoveY = random.Next(-13,25);
             Count++;
         }
 
-        public override bool Move() {
+        public override bool Move(PictureBox pbBar, PictureBox pbBall) {
             if (PosX>750||PosX<0) {
                 MoveX=-MoveX;
             }
@@ -30,6 +30,10 @@ namespace BallApp {
             PosX += MoveX;
             PosY += MoveY;
 
+            return true;
+        }
+
+        public override bool Move(Keys direction) {
             return true;
         }
     }
