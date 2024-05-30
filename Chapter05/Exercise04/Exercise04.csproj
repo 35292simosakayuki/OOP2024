@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E5CE1750-51B4-4E4C-A424-B9B01B6ECDB2}</ProjectGuid>
+    <ProjectGuid>{5E85C0BE-E2D4-41E6-AD51-0C9FD19847CD}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Exercise02</RootNamespace>
-    <AssemblyName>Exercise02</AssemblyName>
+    <RootNamespace>Exercise04</RootNamespace>
+    <AssemblyName>Exercise04</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,28 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exercise03\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
-    <Compile Include="Exercise03\Program.cs" />
-    <Compile Include="Exercise03\Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Exercise03\App.config" />
-    <None Include="Exercise03\Exercise03.csproj" />
-    <None Include="Exercise03\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="Exercise03\obj\Debug\Exercise03.csproj.AssemblyReference.cache" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Exercise01\Exercise01.csproj">
-      <Project>{19c9dc3c-0b28-4d26-8068-bb97e8f880ee}</Project>
-      <Name>Exercise01</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Exercise03\bin\Debug\" />
-    <Folder Include="Exercise03\obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

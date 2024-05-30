@@ -28,23 +28,23 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_1(string text) {
-            throw new NotImplementedException();
+            
         }
 
         private static void Exercise3_2(string text) {
-            throw new NotImplementedException();
+            
         }
 
         private static void Exercise3_3(string text) {
-            throw new NotImplementedException();
+            
         }
 
         private static void Exercise3_4(string text) {
-            throw new NotImplementedException();
+            
         }
 
         private static void Exercise3_5(string text) {
-            throw new NotImplementedException();
+            
         }
     }
 }
