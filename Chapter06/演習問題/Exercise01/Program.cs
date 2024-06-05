@@ -31,31 +31,28 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_2(int[] numbers) {
-            var number=numbers.Skip(9).;
+            var skip=numbers.Length-2;
+            foreach(var number in numbers.Skip(skip)) {
+                Console.WriteLine(number);
+            }
         }
 
         private static void Exercise1_3(int[] numbers) {
-            var str =numbers.Select(x => x.ToString()).ToArray();
-            foreach(var num in str)
-                Console.WriteLine(num);
+            var str =numbers.Select(n => n.ToString());
+            foreach(var numStering in str)
+                Console.WriteLine(numStering);
         }
 
         private static void Exercise1_4(int[] numbers) {
-            var sorted = numbers.OrderBy(x => x);
+            foreach (var number in numbers.OrderBy(n => n).Take(3)) {
+                Console.WriteLine(number);
+            }
 
         }
 
         private static void Exercise1_5(int[] numbers) {
-            var results = numbers.Distinct();
-            
-            foreach (int n in numbers) {
-            if(n>0) {
-                    results.Add(n);
-                    if (results.Count()>10)
-                        break;
-                    
-                }
-            }
+            var count= numbers.Distinct().Count(n=>n>10);
+            Console.WriteLine(count);
         }
     }
 }
