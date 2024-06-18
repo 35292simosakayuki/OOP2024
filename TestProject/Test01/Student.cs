@@ -1,10 +1,11 @@
-﻿namespace Test01 {
+﻿using System;
+
+namespace Test01 {
     class Student {
-        public string Name;
-        public string Subject;
-        public string Score;
+        public string Name {  get; set; }
+        public string Subject { get; set; }
+        public int Score {  get; set; }
 
-
-
+        
     }
 }
