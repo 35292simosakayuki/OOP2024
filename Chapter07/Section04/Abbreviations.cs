@@ -1,5 +1,6 @@
 ﻿
         using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,14 +10,14 @@ using System.Threading.Tasks;
 namespace Section04 {
         // List 7-19
         // 略語と対応する日本語を管理するクラス
-        class Abbreviations {
+        class Abbreviations :IEnumerable<KeyValuePair<string,string>>{
             private Dictionary<string, string> _dict = new Dictionary<string, string>();
 
         //7.2.1
-        public int Countset {  get { return _dict.Count; } }
+        public int Count {  get { return _dict.Count; } }
 
         //7.2.2
-
+        public bool Remove(string add) {  return _dict.Remove(add); }
             // コンストラクタ
             public Abbreviations() {
                 var lines = File.ReadAllLines("Abbreviations.txt");
@@ -48,6 +49,14 @@ namespace Section04 {
                         yield return item;
                 }
             }
+
+        public IEnumerator<KeyValuePair<string, string>> GetEnumerator() {
+            return ((IEnumerable<KeyValuePair<string, string>>)_dict).GetEnumerator();
         }
+
+        IEnumerator IEnumerable.GetEnumerator() {
+            return ((IEnumerable)_dict).GetEnumerator();
+        }
+    }
     }
 
