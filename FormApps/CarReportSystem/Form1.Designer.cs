@@ -28,7 +28,7 @@
             cbAuther = new ComboBox();
             dpt = new DateTimePicker();
             label3 = new Label();
-            comboBox2 = new ComboBox();
+            cbCarName = new ComboBox();
             label4 = new Label();
             label5 = new Label();
             btPicOpen = new Button();
@@ -109,13 +109,13 @@
             label3.TabIndex = 0;
             label3.Text = "メーカー";
             // 
-            // comboBox2
+            // cbCarName
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(89, 203);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(238, 23);
-            comboBox2.TabIndex = 1;
+            cbCarName.FormattingEnabled = true;
+            cbCarName.Location = new Point(89, 203);
+            cbCarName.Name = "cbCarName";
+            cbCarName.Size = new Size(238, 23);
+            cbCarName.TabIndex = 1;
             // 
             // label4
             // 
@@ -409,7 +409,7 @@
             Controls.Add(btAddReport);
             Controls.Add(btPicOpen);
             Controls.Add(dpt);
-            Controls.Add(comboBox2);
+            Controls.Add(cbCarName);
             Controls.Add(cbAuther);
             Controls.Add(label7);
             Controls.Add(label8);
@@ -438,7 +438,7 @@
         private ComboBox cbAuther;
         private DateTimePicker dpt;
         private Label label3;
-        private ComboBox comboBox2;
+        private ComboBox cbCarName;
         private Label label4;
         private Label label5;
         private Button btPicOpen;
