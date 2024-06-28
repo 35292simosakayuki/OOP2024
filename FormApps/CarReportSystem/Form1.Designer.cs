@@ -26,7 +26,7 @@
             label1 = new Label();
             label2 = new Label();
             cbAuther = new ComboBox();
-            dpt = new DateTimePicker();
+            dtpDate = new DateTimePicker();
             label3 = new Label();
             cbCarName = new ComboBox();
             label4 = new Label();
@@ -47,12 +47,12 @@
             button8 = new Button();
             btReportSave = new Button();
             groupBox1 = new GroupBox();
-            rbtoyota = new RadioButton();
-            rbnissan = new RadioButton();
-            rbhonda = new RadioButton();
-            rbsubaru = new RadioButton();
-            radioButton5 = new RadioButton();
             rbinport = new RadioButton();
+            radioButton5 = new RadioButton();
+            rbsubaru = new RadioButton();
+            rbhonda = new RadioButton();
+            rbnissan = new RadioButton();
+            rbtoyota = new RadioButton();
             tbReport = new TextBox();
             button1 = new Button();
             textBox1 = new TextBox();
@@ -91,13 +91,13 @@
             cbAuther.Size = new Size(238, 23);
             cbAuther.TabIndex = 1;
             // 
-            // dpt
+            // dtpDate
             // 
-            dpt.Font = new Font("Yu Gothic UI", 15F);
-            dpt.Location = new Point(89, 27);
-            dpt.Name = "dpt";
-            dpt.Size = new Size(175, 34);
-            dpt.TabIndex = 2;
+            dtpDate.Font = new Font("Yu Gothic UI", 15F);
+            dtpDate.Location = new Point(89, 27);
+            dtpDate.Name = "dtpDate";
+            dtpDate.Size = new Size(175, 34);
+            dtpDate.TabIndex = 2;
             // 
             // label3
             // 
@@ -183,6 +183,7 @@
             btAddReport.TabIndex = 3;
             btAddReport.Text = "追加";
             btAddReport.UseVisualStyleBackColor = true;
+            btAddReport.Click += btAddReport_Click;
             // 
             // button4
             // 
@@ -292,45 +293,15 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "　　トヨタ　　日産　　ホンダ　　スバル　　輸入車　　その他";
             // 
-            // rbtoyota
+            // rbinport
             // 
-            rbtoyota.AutoSize = true;
-            rbtoyota.Location = new Point(17, 0);
-            rbtoyota.Name = "rbtoyota";
-            rbtoyota.Size = new Size(14, 13);
-            rbtoyota.TabIndex = 0;
-            rbtoyota.TabStop = true;
-            rbtoyota.UseVisualStyleBackColor = true;
-            // 
-            // rbnissan
-            // 
-            rbnissan.AutoSize = true;
-            rbnissan.Location = new Point(68, 0);
-            rbnissan.Name = "rbnissan";
-            rbnissan.Size = new Size(14, 13);
-            rbnissan.TabIndex = 0;
-            rbnissan.TabStop = true;
-            rbnissan.UseVisualStyleBackColor = true;
-            // 
-            // rbhonda
-            // 
-            rbhonda.AutoSize = true;
-            rbhonda.Location = new Point(110, 0);
-            rbhonda.Name = "rbhonda";
-            rbhonda.Size = new Size(14, 13);
-            rbhonda.TabIndex = 0;
-            rbhonda.TabStop = true;
-            rbhonda.UseVisualStyleBackColor = true;
-            // 
-            // rbsubaru
-            // 
-            rbsubaru.AutoSize = true;
-            rbsubaru.Location = new Point(165, 0);
-            rbsubaru.Name = "rbsubaru";
-            rbsubaru.Size = new Size(14, 13);
-            rbsubaru.TabIndex = 0;
-            rbsubaru.TabStop = true;
-            rbsubaru.UseVisualStyleBackColor = true;
+            rbinport.AutoSize = true;
+            rbinport.Location = new Point(280, 0);
+            rbinport.Name = "rbinport";
+            rbinport.Size = new Size(14, 13);
+            rbinport.TabIndex = 0;
+            rbinport.TabStop = true;
+            rbinport.UseVisualStyleBackColor = true;
             // 
             // radioButton5
             // 
@@ -342,15 +313,45 @@
             radioButton5.TabStop = true;
             radioButton5.UseVisualStyleBackColor = true;
             // 
-            // rbinport
+            // rbsubaru
             // 
-            rbinport.AutoSize = true;
-            rbinport.Location = new Point(280, 0);
-            rbinport.Name = "rbinport";
-            rbinport.Size = new Size(14, 13);
-            rbinport.TabIndex = 0;
-            rbinport.TabStop = true;
-            rbinport.UseVisualStyleBackColor = true;
+            rbsubaru.AutoSize = true;
+            rbsubaru.Location = new Point(165, 0);
+            rbsubaru.Name = "rbsubaru";
+            rbsubaru.Size = new Size(14, 13);
+            rbsubaru.TabIndex = 0;
+            rbsubaru.TabStop = true;
+            rbsubaru.UseVisualStyleBackColor = true;
+            // 
+            // rbhonda
+            // 
+            rbhonda.AutoSize = true;
+            rbhonda.Location = new Point(110, 0);
+            rbhonda.Name = "rbhonda";
+            rbhonda.Size = new Size(14, 13);
+            rbhonda.TabIndex = 0;
+            rbhonda.TabStop = true;
+            rbhonda.UseVisualStyleBackColor = true;
+            // 
+            // rbnissan
+            // 
+            rbnissan.AutoSize = true;
+            rbnissan.Location = new Point(68, 0);
+            rbnissan.Name = "rbnissan";
+            rbnissan.Size = new Size(14, 13);
+            rbnissan.TabIndex = 0;
+            rbnissan.TabStop = true;
+            rbnissan.UseVisualStyleBackColor = true;
+            // 
+            // rbtoyota
+            // 
+            rbtoyota.AutoSize = true;
+            rbtoyota.Location = new Point(17, 0);
+            rbtoyota.Name = "rbtoyota";
+            rbtoyota.Size = new Size(14, 13);
+            rbtoyota.TabIndex = 0;
+            rbtoyota.TabStop = true;
+            rbtoyota.UseVisualStyleBackColor = true;
             // 
             // tbReport
             // 
@@ -408,7 +409,7 @@
             Controls.Add(button1);
             Controls.Add(btAddReport);
             Controls.Add(btPicOpen);
-            Controls.Add(dpt);
+            Controls.Add(dtpDate);
             Controls.Add(cbCarName);
             Controls.Add(cbAuther);
             Controls.Add(label7);
@@ -436,7 +437,7 @@
         private Label label1;
         private Label label2;
         private ComboBox cbAuther;
-        private DateTimePicker dpt;
+        private DateTimePicker dtpDate;
         private Label label3;
         private ComboBox cbCarName;
         private Label label4;
