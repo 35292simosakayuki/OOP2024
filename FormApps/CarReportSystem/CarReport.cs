@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarReportSystem {
     public class CarReport {
-
+        //列挙型
         public enum MakerGroup {
             トヨタ,
             日産,
@@ -16,13 +16,17 @@ namespace CarReportSystem {
             その他,
         }
 
-
-        public DateTime Date { get; set; }
-        public string Auther { get; set; }=string.Empty;
-        public MakerGroup Maker { get; set; }
-        public string CarName { get; set; } = string.Empty;
-        public string Report { get; set; } = string.Empty;
-        public Image? Picture { get; set; }
-
+        [System.ComponentModel.DisplayName("日付")]               
+        public DateTime Date { get; set; }  //日付
+        [System.ComponentModel.DisplayName("記録者")]
+        public string Author { get; set; } = string.Empty;  //記録者
+        [System.ComponentModel.DisplayName("メーカー")]
+        public MakerGroup Maker { get; set; }   //メーカー
+        [System.ComponentModel.DisplayName("車名")]
+        public string CarName { get; set; } = string.Empty; //車名
+        [System.ComponentModel.DisplayName("レポート")]
+        public string Report { get; set; } = string.Empty; //レポート
+        [System.ComponentModel.Browsable(false)]
+        public Image? Picture { get; set; }  //画像
     }
 }
