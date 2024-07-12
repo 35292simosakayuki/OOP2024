@@ -1,7 +1,11 @@
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Diagnostics.Metrics;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CarReportSystem {
@@ -9,6 +13,9 @@ namespace CarReportSystem {
 
         //カーレポート管理用リスト
         BindingList<CarReport> listCarReports = new BindingList<CarReport>();
+
+        //設定クラスのインスタンス作成
+        Settings settings = new Settings();
 
         //コンストラクタ
         public Form1() {
@@ -135,6 +142,25 @@ namespace CarReportSystem {
             //交互に色を設定（データグリッドビュー）
             dgvCarReport.RowsDefaultCellStyle.BackColor = Color.AliceBlue;
             dgvCarReport.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
+
+
+            if (File.Exists("setting.xml")) {
+                //設定ファイルを逆シリアル化して背景を設定
+                try {
+                    using (var reader = XmlReader.Create("setting.xml")) {
+                        var serialzar = new XmlSerializer(typeof(Settings));
+                        settings = serialzar.Deserialize(reader)as Settings;
+                        BackColor=Color.FromArgb(settings.MainFormColor);
+                        settings.MainFormColor=BackColor.ToArgb();
+                    }
+                }
+                catch (Exception) {
+                    tslbMessage.Text="色情報ファイルエラー";
+                }
+            } else {
+                tslbMessage.Text="色情報ファイルがありません";
+            }
+
         }
 
         private void dgvCarReport_Click(object sender, EventArgs e) {
@@ -266,5 +292,24 @@ namespace CarReportSystem {
                 Application.Exit();
         }
 
+        private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
+
+            if (cdColor.ShowDialog() == DialogResult.OK) {
+                BackColor = cdColor.Color;
+                settings.MainFormColor=cdColor.Color.ToArgb();
+            }
+        }
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
+            try {
+                using (var writer = XmlWriter.Create("setting.xml")) {
+                    var serialzar = new XmlSerializer(settings.GetType());
+                    serialzar.Serialize(writer, settings);
+                }
+
+            }
+            catch (Exception) {
+                MessageBox.Show("設定ファイル書き込みエラー");
+            }
+        }
     }
 }
