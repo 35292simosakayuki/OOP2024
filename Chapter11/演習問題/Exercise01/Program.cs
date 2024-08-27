@@ -51,7 +51,7 @@ namespace Exercise01 {
             var xdoc1 = XDocument.Load(file);
             var sport = xdoc1.Root.Elements().Select(x => new {
                 Name = x.Elements("name").Value,
-                Teammenbers = x.Elements("teammembers").Value,
+                Teammenbers = x.Elements("teammembers").Value
             })
                 .OrderByDescending(x => int.Parse(x.Teammembers))
                 .First();
