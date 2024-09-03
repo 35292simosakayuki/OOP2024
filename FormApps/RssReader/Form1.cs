@@ -20,9 +20,12 @@ namespace RssReader {
                 var url=wc.OpenRead(tbRssUrl.Text);
                 var xdoc=XDocument.Load(url);
 
-                var xelements = xdoc.Root.Descendants("item");
+                var xtitle = xdoc.Root.Descendants("item").
+                    Select(item=>item.Element("title").Value);
 
-
+                foreach(var title in xtitle) {
+                    lbRssTitle.Items.Add(title);
+                }
 
             }
         }
