@@ -1,4 +1,6 @@
-﻿namespace RssReader {
+﻿using System;
+
+namespace RssReader {
     partial class Form1 {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -23,67 +25,98 @@
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
-            this.tbRssUrl = new System.Windows.Forms.TextBox();
-            this.btGet = new System.Windows.Forms.Button();
+            this.textBoxUrl = new System.Windows.Forms.TextBox();
+            this.goButton = new System.Windows.Forms.Button();
             this.lbRssTitle = new System.Windows.Forms.ListBox();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.cbRssUrl = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             this.SuspendLayout();
             // 
-            // tbRssUrl
+            // textBoxUrl
             // 
-            this.tbRssUrl.Location = new System.Drawing.Point(39, 20);
-            this.tbRssUrl.Name = "tbRssUrl";
-            this.tbRssUrl.Size = new System.Drawing.Size(523, 19);
-            this.tbRssUrl.TabIndex = 0;
+            this.textBoxUrl.Location = new System.Drawing.Point(39, 20);
+            this.textBoxUrl.Name = "textBoxUrl";
+            this.textBoxUrl.Size = new System.Drawing.Size(523, 19);
+            this.textBoxUrl.TabIndex = 0;
             // 
-            // btGet
+            // goButton
             // 
-            this.btGet.Location = new System.Drawing.Point(568, 18);
-            this.btGet.Name = "btGet";
-            this.btGet.Size = new System.Drawing.Size(75, 23);
-            this.btGet.TabIndex = 1;
-            this.btGet.Text = "取得";
-            this.btGet.UseVisualStyleBackColor = true;
+            this.goButton.Location = new System.Drawing.Point(568, 18);
+            this.goButton.Name = "goButton";
+            this.goButton.Size = new System.Drawing.Size(75, 23);
+            this.goButton.TabIndex = 1;
+            this.goButton.Text = "取得";
+            this.goButton.UseVisualStyleBackColor = true;
+            this.goButton.Click += new System.EventHandler(this.goButton_Click);
             // 
             // lbRssTitle
             // 
             this.lbRssTitle.FormattingEnabled = true;
             this.lbRssTitle.ItemHeight = 12;
-            this.lbRssTitle.Location = new System.Drawing.Point(39, 58);
+            this.lbRssTitle.Location = new System.Drawing.Point(30, 109);
             this.lbRssTitle.Name = "lbRssTitle";
             this.lbRssTitle.Size = new System.Drawing.Size(749, 124);
             this.lbRssTitle.TabIndex = 2;
             // 
-            // webBrowser1
+            // webView
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(39, 198);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(749, 370);
-            this.webBrowser1.TabIndex = 3;
+            this.webView.AllowExternalDrop = true;
+            this.webView.CreationProperties = null;
+            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView.Location = new System.Drawing.Point(30, 239);
+            this.webView.Name = "webView";
+            this.webView.Size = new System.Drawing.Size(749, 382);
+            this.webView.TabIndex = 4;
+            this.webView.ZoomFactor = 1D;
+            // 
+            // cbRssUrl
+            // 
+            this.cbRssUrl.FormattingEnabled = true;
+            this.cbRssUrl.Location = new System.Drawing.Point(39, 61);
+            this.cbRssUrl.Name = "cbRssUrl";
+            this.cbRssUrl.Size = new System.Drawing.Size(497, 20);
+            this.cbRssUrl.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(570, 61);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 19);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 608);
-            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cbRssUrl);
+            this.Controls.Add(this.webView);
             this.Controls.Add(this.lbRssTitle);
-            this.Controls.Add(this.btGet);
-            this.Controls.Add(this.tbRssUrl);
+            this.Controls.Add(this.goButton);
+            this.Controls.Add(this.textBoxUrl);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
+
+
         #endregion
 
-        private System.Windows.Forms.TextBox tbRssUrl;
-        private System.Windows.Forms.Button btGet;
+        private System.Windows.Forms.TextBox textBoxUrl;
+        private System.Windows.Forms.Button goButton;
         private System.Windows.Forms.ListBox lbRssTitle;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView;
+        private System.Windows.Forms.ComboBox cbRssUrl;
+        private System.Windows.Forms.Button button1;
     }
 }
 
