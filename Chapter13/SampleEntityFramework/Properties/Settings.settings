@@ -10,8 +10,5 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=172.16.42.1;Initial Catalog=infosys202423;Persist Security Info=True;User ID=sa;Password=c42dbpass;Encrypt=False</Value>
     </Setting>
-    <Setting Name="設定1" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
   </Settings>
 </SettingsFile>

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SampleEntityFramework.Models {
     public class Book {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
-        public string PublishedYear { get; set; }
+        public int PublishedYear { get; set; }
         public virtual Author Author { get; set; }
 
     }
