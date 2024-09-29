@@ -25,83 +25,131 @@ namespace RssReader {
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
-            this.textBoxUrl = new System.Windows.Forms.TextBox();
-            this.goButton = new System.Windows.Forms.Button();
+            this.tbRssName = new System.Windows.Forms.TextBox();
+            this.btGet = new System.Windows.Forms.Button();
             this.lbRssTitle = new System.Windows.Forms.ListBox();
-            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.wbRss = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.cbRssUrl = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
+            this.btJoin = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.btFavorite = new System.Windows.Forms.Button();
+            this.lbFavoriteItems = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.wbRss)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBoxUrl
+            // tbRssName
             // 
-            this.textBoxUrl.Location = new System.Drawing.Point(39, 20);
-            this.textBoxUrl.Name = "textBoxUrl";
-            this.textBoxUrl.Size = new System.Drawing.Size(523, 19);
-            this.textBoxUrl.TabIndex = 0;
+            this.tbRssName.Location = new System.Drawing.Point(52, 53);
+            this.tbRssName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbRssName.Name = "tbRssName";
+            this.tbRssName.Size = new System.Drawing.Size(696, 22);
+            this.tbRssName.TabIndex = 0;
             // 
-            // goButton
+            // btGet
             // 
-            this.goButton.Location = new System.Drawing.Point(568, 18);
-            this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(75, 23);
-            this.goButton.TabIndex = 1;
-            this.goButton.Text = "取得";
-            this.goButton.UseVisualStyleBackColor = true;
-            this.goButton.Click += new System.EventHandler(this.goButton_Click);
+            this.btGet.Location = new System.Drawing.Point(757, 22);
+            this.btGet.Margin = new System.Windows.Forms.Padding(4);
+            this.btGet.Name = "btGet";
+            this.btGet.Size = new System.Drawing.Size(100, 29);
+            this.btGet.TabIndex = 1;
+            this.btGet.Text = "取得";
+            this.btGet.UseVisualStyleBackColor = true;
+            this.btGet.Click += new System.EventHandler(this.btGet_Click);
             // 
             // lbRssTitle
             // 
             this.lbRssTitle.FormattingEnabled = true;
-            this.lbRssTitle.ItemHeight = 12;
-            this.lbRssTitle.Location = new System.Drawing.Point(30, 109);
+            this.lbRssTitle.ItemHeight = 15;
+            this.lbRssTitle.Location = new System.Drawing.Point(40, 167);
+            this.lbRssTitle.Margin = new System.Windows.Forms.Padding(4);
             this.lbRssTitle.Name = "lbRssTitle";
-            this.lbRssTitle.Size = new System.Drawing.Size(749, 124);
+            this.lbRssTitle.Size = new System.Drawing.Size(997, 154);
             this.lbRssTitle.TabIndex = 2;
+            this.lbRssTitle.SelectedIndexChanged += new System.EventHandler(this.lbRssTitle_SelectedIndexChanged);
             // 
-            // webView
+            // wbRss
             // 
-            this.webView.AllowExternalDrop = true;
-            this.webView.CreationProperties = null;
-            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView.Location = new System.Drawing.Point(30, 239);
-            this.webView.Name = "webView";
-            this.webView.Size = new System.Drawing.Size(749, 382);
-            this.webView.TabIndex = 4;
-            this.webView.ZoomFactor = 1D;
+            this.wbRss.AllowExternalDrop = true;
+            this.wbRss.CreationProperties = null;
+            this.wbRss.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.wbRss.Location = new System.Drawing.Point(40, 329);
+            this.wbRss.Margin = new System.Windows.Forms.Padding(4);
+            this.wbRss.Name = "wbRss";
+            this.wbRss.Size = new System.Drawing.Size(999, 478);
+            this.wbRss.TabIndex = 4;
+            this.wbRss.ZoomFactor = 1D;
             // 
             // cbRssUrl
             // 
             this.cbRssUrl.FormattingEnabled = true;
-            this.cbRssUrl.Location = new System.Drawing.Point(39, 61);
+            this.cbRssUrl.Location = new System.Drawing.Point(52, 22);
+            this.cbRssUrl.Margin = new System.Windows.Forms.Padding(4);
             this.cbRssUrl.Name = "cbRssUrl";
-            this.cbRssUrl.Size = new System.Drawing.Size(497, 20);
+            this.cbRssUrl.Size = new System.Drawing.Size(696, 23);
             this.cbRssUrl.TabIndex = 5;
             // 
-            // button1
+            // btJoin
             // 
-            this.button1.Location = new System.Drawing.Point(570, 61);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 19);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btJoin.Location = new System.Drawing.Point(761, 59);
+            this.btJoin.Margin = new System.Windows.Forms.Padding(4);
+            this.btJoin.Name = "btJoin";
+            this.btJoin.Size = new System.Drawing.Size(96, 24);
+            this.btJoin.TabIndex = 6;
+            this.btJoin.Text = "登録";
+            this.btJoin.UseVisualStyleBackColor = true;
+            this.btJoin.Click += new System.EventHandler(this.btJoin_Click);
+            // 
+            // btDelete
+            // 
+            this.btDelete.Location = new System.Drawing.Point(865, 59);
+            this.btDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(96, 24);
+            this.btDelete.TabIndex = 7;
+            this.btDelete.Text = "削除";
+            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // btFavorite
+            // 
+            this.btFavorite.Location = new System.Drawing.Point(757, 91);
+            this.btFavorite.Margin = new System.Windows.Forms.Padding(4);
+            this.btFavorite.Name = "btFavorite";
+            this.btFavorite.Size = new System.Drawing.Size(96, 24);
+            this.btFavorite.TabIndex = 8;
+            this.btFavorite.Text = "お気に入り";
+            this.btFavorite.UseVisualStyleBackColor = true;
+            this.btFavorite.Click += new System.EventHandler(this.btFavorite_Click);
+            // 
+            // lbFavoriteItems
+            // 
+            this.lbFavoriteItems.FormattingEnabled = true;
+            this.lbFavoriteItems.ItemHeight = 15;
+            this.lbFavoriteItems.Location = new System.Drawing.Point(52, 83);
+            this.lbFavoriteItems.Margin = new System.Windows.Forms.Padding(4);
+            this.lbFavoriteItems.Name = "lbFavoriteItems";
+            this.lbFavoriteItems.Size = new System.Drawing.Size(696, 64);
+            this.lbFavoriteItems.TabIndex = 9;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 608);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1067, 760);
+            this.Controls.Add(this.lbFavoriteItems);
+            this.Controls.Add(this.btFavorite);
+            this.Controls.Add(this.btDelete);
+            this.Controls.Add(this.btJoin);
             this.Controls.Add(this.cbRssUrl);
-            this.Controls.Add(this.webView);
+            this.Controls.Add(this.wbRss);
             this.Controls.Add(this.lbRssTitle);
-            this.Controls.Add(this.goButton);
-            this.Controls.Add(this.textBoxUrl);
+            this.Controls.Add(this.btGet);
+            this.Controls.Add(this.tbRssName);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.wbRss)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,12 +159,15 @@ namespace RssReader {
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxUrl;
-        private System.Windows.Forms.Button goButton;
+        private System.Windows.Forms.TextBox tbRssName;
+        private System.Windows.Forms.Button btGet;
         private System.Windows.Forms.ListBox lbRssTitle;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView;
+        private Microsoft.Web.WebView2.WinForms.WebView2 wbRss;
         private System.Windows.Forms.ComboBox cbRssUrl;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btJoin;
+        private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.Button btFavorite;
+        private System.Windows.Forms.ListBox lbFavoriteItems;
     }
 }
 
