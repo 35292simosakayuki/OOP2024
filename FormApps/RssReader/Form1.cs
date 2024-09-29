@@ -138,6 +138,12 @@ namespace RssReader {
                 return;
             }
 
+            // URLが正しい形式かチェックする
+            if (!Uri.IsWellFormedUriString(url, UriKind.Absolute)) {
+                MessageBox.Show("無効なURL形式です。正しいURLを入力してください。", "URLエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             var newPair = new CategoryUrlPair(categoryName, url);
             cateGoryUrlPairs.Add(newPair);
 
@@ -151,6 +157,7 @@ namespace RssReader {
 
             MessageBox.Show("登録しました。", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
 
 
         private async void Form1_Load(object sender, EventArgs e) {
