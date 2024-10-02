@@ -22,6 +22,7 @@ namespace RssReader {
         public Form1() {
             InitializeComponent();
             InitializecatagoryUrlPairs();
+            favoriteItems = new List<ItemData>();
             MessageBox.Show("カテゴリ選択またはURLを入力して取得ボタンを押す\n" +
                 "お気に入り名称とURLを入力して登録ボタンを押す");
             cbRssUrl.DropDownStyle = ComboBoxStyle.DropDown;
@@ -64,7 +65,7 @@ namespace RssReader {
                         try {
                             var xdoc = XDocument.Parse(rssData);
 
-                            items = xdoc.Descendants("item") // "item"に修正
+                            items = xdoc.Descendants("item") 
                                 .Select(item => new ItemData {
                                     Title = item.Element("title")?.Value ?? "タイトルなし",
                                     Link = item.Element("link")?.Value ?? string.Empty,
@@ -98,9 +99,9 @@ namespace RssReader {
                 var selectedItem = items[lbRssTitle.SelectedIndex];
                 if (!string.IsNullOrEmpty(selectedItem.Link)) {
                     try {
-                        // URLが有効な形式か確認
+                        
                         var url = new Uri(selectedItem.Link);
-                        wbRss.Source = url; // WebView2では Source プロパティを使用
+                        wbRss.Source = url;
                     }
                     catch (UriFormatException) {
                         MessageBox.Show("無効なURLです。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -138,7 +139,7 @@ namespace RssReader {
                 return;
             }
 
-            // URLが正しい形式かチェックする
+            
             if (!Uri.IsWellFormedUriString(url, UriKind.Absolute)) {
                 MessageBox.Show("無効なURL形式です。正しいURLを入力してください。", "URLエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -166,8 +167,8 @@ namespace RssReader {
         private void btDelete_Click(object sender, EventArgs e) {
             if (lbRssTitle.SelectedIndex >= 0) {
                 int indexToRemove = lbRssTitle.SelectedIndex;
-                items.RemoveAt(indexToRemove); 
-                lbRssTitle.Items.RemoveAt(indexToRemove); 
+                items.RemoveAt(indexToRemove);
+                lbRssTitle.Items.RemoveAt(indexToRemove);
             } else {
                 MessageBox.Show("削除するアイテムを選択してください。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -176,18 +177,17 @@ namespace RssReader {
             if (lbRssTitle.SelectedIndex >= 0) {
                 var selectedItem = items[lbRssTitle.SelectedIndex];
 
-                
-                if (!favoriteItems.Any(f => f.Link == selectedItem.Link)) {
-                    favoriteItems.Add(selectedItem);
-                    MessageBox.Show($"{selectedItem.Title} をお気に入りに追加しました。", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    
+                if (!favoriteItems.Any(f => f.Link == selectedItem.Link)) {
+                    favoriteItems.Add(new ItemData {
+                        Title = selectedItem.Title,
+                        Link = selectedItem.Link
+                    });
+                    MessageBox.Show($"{selectedItem.Title} をお気に入りに追加しました。", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UpdateFavoriteItemsList();
                 } else {
                     MessageBox.Show($"{selectedItem.Title} はすでにお気に入りに登録されています。", "情報", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            } else {
-                MessageBox.Show("お気に入りに追加するアイテムを選択してください。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -203,7 +203,7 @@ namespace RssReader {
                 if (!string.IsNullOrEmpty(selectedItem.Link)) {
                     try {
                         var url = new Uri(selectedItem.Link);
-                        wbRss.Source = url; 
+                        wbRss.Source = url;
                     }
                     catch (UriFormatException) {
                         MessageBox.Show("無効なURLです。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);

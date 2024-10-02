@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Exrcise01 {
@@ -43,10 +44,13 @@ namespace Exrcise01 {
 
         private static void Exercise1_4() {
             var quary = Library.Books.Join(Library.Categories, book => book.CategoryId, category => category.Id,
-                (book, category) => new
-                { book.Title, book.PublishedYear, book.Price, CategoryName = category.Name,
-                }).OrderByDescending(x=>x.PublishedYear)
-                .ThenByDescending(x=>x.Price);
+                (book, category) => new {
+                    book.Title,
+                    book.PublishedYear,
+                    book.Price,
+                    CategoryName = category.Name,
+                }).OrderByDescending(x => x.PublishedYear)
+                .ThenByDescending(x => x.Price);
 
             foreach (var x in quary)
                 Console.WriteLine("{0}年　{1}円　{2} ({3})",
@@ -58,15 +62,34 @@ namespace Exrcise01 {
         }
 
         private static void Exercise1_5() {
-            throw new NotImplementedException();
-        }
+        //    var quary = Library.Books.GroupBy(x => x.PublishedYear==2016)
+        //        .Join(Library.Categories,
+        //       book => book.CategoryId,
+        //        category => category.Id,
+       //         (book, category) => category.Name).Distinct();
+//
+       //     foreach (var x in quary) {
+       //         Console.WriteLine(x);
+       //     }
+       }
 
         private static void Exercise1_6() {
-            throw new NotImplementedException();
+        //    var quary=Library.Books.Join(Library.Categories,
+        //        book=>book.CategoryId,
+
         }
 
         private static void Exercise1_7() {
-            throw new NotImplementedException();
+            var categoriesId = Library.Categories.Where(c => c.Name=="Development").Id;
+            var quary = Library.Books.Where(b => b.CategoryId==categoriesId)
+            .Groupby(b => b.PublishedYear)
+            .OrderBy(b => b.Key);
+            foreach (var x in quary) {
+                Console.WriteLine("#{0}年",x.Key);
+                foreach(var y in x) { 
+                Console.WriteLine(" {0}",y.Title); 
+                }
+            }
         }
 
         private static void Exercise1_8() {
