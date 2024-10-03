@@ -62,38 +62,61 @@ namespace Exrcise01 {
         }
 
         private static void Exercise1_5() {
-        //    var quary = Library.Books.GroupBy(x => x.PublishedYear==2016)
-        //        .Join(Library.Categories,
-        //       book => book.CategoryId,
-        //        category => category.Id,
-       //         (book, category) => category.Name).Distinct();
-//
-       //     foreach (var x in quary) {
-       //         Console.WriteLine(x);
-       //     }
-       }
+            var query = Library.Books
+                            .Where(b => b.PublishedYear == 2016)
+                            .Join(Library.Categories,   //結合する２番目のシーケンス
+                                    book => book.CategoryId,//対象シーケンスの結合キー
+                                    category => category.Id,//２番目のシーケンスの結合キー
+                                    (book, category) => category.Name)
+                            .Distinct();
+
+            foreach (var name in query)
+                Console.WriteLine(name);
+        }
 
         private static void Exercise1_6() {
-        //    var quary=Library.Books.Join(Library.Categories,
-        //        book=>book.CategoryId,
-
+            var query = Library.Books
+                            .Join(Library.Categories,   //結合する２番目のシーケンス
+                                    book => book.CategoryId,//対象シーケンスの結合キー
+                                    category => category.Id,//２番目のシーケンスの結合キー
+                                    (book, category) => new {
+                                        book.Title,
+                                        CategoryName = category.Name
+                                    })
+                            .GroupBy(x => x.CategoryName)
+                            .OrderBy(x => x.Key);
+            foreach (var group in query) {
+                Console.WriteLine("#{0}", group.Key);
+                foreach (var item in group) {
+                    Console.WriteLine("  {0}", item.Title);
+                }
+            }
         }
 
         private static void Exercise1_7() {
-            var categoriesId = Library.Categories.Where(c => c.Name=="Development").Id;
-            var quary = Library.Books.Where(b => b.CategoryId==categoriesId)
-            .Groupby(b => b.PublishedYear)
-            .OrderBy(b => b.Key);
-            foreach (var x in quary) {
-                Console.WriteLine("#{0}年",x.Key);
-                foreach(var y in x) { 
-                Console.WriteLine(" {0}",y.Title); 
+            var categoriesId = Library.Categories.Single(c => c.Name == "Development").Id;
+            var query = Library.Books.Where(b => b.CategoryId == categoriesId)
+                                        .GroupBy(b => b.PublishedYear)
+                                        .OrderBy(b => b.Key);
+            foreach (var group in query) {
+                Console.WriteLine("#{0}年", group.Key);
+                foreach (var item in group) {
+                    Console.WriteLine("  {0}", item.Title);
                 }
             }
         }
 
         private static void Exercise1_8() {
-            throw new NotImplementedException();
+            var quary=Library.Categories.GroupJoin(Library.Books,
+                c=>c.Id,
+                b=>b.CategoryId,
+                (c, b) => new {
+                    CategoryName=c.Name,
+                    count=b.Count()
+                });
+            foreach (var x in quary) {
+                Console.WriteLine(x.CategoryName+"("+x.count+")");
+            }
         }
     }
 }
