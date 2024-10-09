@@ -16,47 +16,57 @@ namespace Section03 {
             InitializeComponent();
         }
 
+        //非同期メソッド
         private async void bt_16_6_Click(object sender, EventArgs e) {
-            toolStripStatusLabel1.Text="";
-            await Task.Run(() => DoSomething() );
-            toolStripStatusLabel1.Text="終了";
+            toolStripStatusLabel1.Text = "";
+            await Task.Run(() => DoSomething());
+            //DoSomething();
+            toolStripStatusLabel1.Text = "終了";
         }
+
         private void DoSomething() {
             Thread.Sleep(5000);
         }
 
+        //非同期メソッド（イベントハンドラ）
         private async void bt_16_7_Click(object sender, EventArgs e) {
-            toolStripStatusLabel1.Text="";
-           var elapsed=await Task.Run(() => DoSomething2());
-            toolStripStatusLabel1.Text=$"{elapsed}ミリ秒";
+            toolStripStatusLabel1.Text = "";
+            var elapsed = await Task.Run(() => DoSomething2());
+            toolStripStatusLabel1.Text = $"{elapsed}ミリ秒";
         }
 
         private long DoSomething2() {
-            var sw=Stopwatch.StartNew();
+            var sw = Stopwatch.StartNew();
             Thread.Sleep(5000);
             sw.Stop();
             return sw.ElapsedMilliseconds;
         }
 
-        private void bt_16_8_Click(object sender, EventArgs e) {
-            toolStripStatusLabel1.Text="";
-            DoSomethingAsync();
-            toolStripStatusLabel1.Text="終了";
+        private async void bt_16_8_Click(object sender, EventArgs e) {
+            toolStripStatusLabel1.Text = "";
+            await DoSomethingAsync();
+            toolStripStatusLabel1.Text = "終了";
         }
 
-        private async void DoSomethingAsync() {
-            await Task.Run(() => Thread.Sleep(5000));
+        //非同期メソッド
+        private async Task DoSomethingAsync() {
+            await Task.Run(() => {
+                Thread.Sleep(5000);
+            });
         }
 
         private async void bt_16_9_Click(object sender, EventArgs e) {
-
-            toolStripStatusLabel1.Text="";
+            toolStripStatusLabel1.Text = "";
             var elapsed = await DoSomethingAsync2();
-            toolStripStatusLabel1.Text=$"{elapsed}ミリ秒";
+            toolStripStatusLabel1.Text = $"{elapsed}ミリ秒";
         }
+        
+        //非同期メソッド
         private async Task<long> DoSomethingAsync2() {
             var sw = Stopwatch.StartNew();
-            await Task.Run(() => { Thread.Sleep(5000); });
+            await Task.Run(() => {
+                Thread.Sleep(5000);
+            });
             sw.Stop();
             return sw.ElapsedMilliseconds;
         }
