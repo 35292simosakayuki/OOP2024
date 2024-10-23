@@ -175,7 +175,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridSample", "WPF\GridSampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSlider", "WPF\SampleSlider\SampleSlider.csproj", "{BEB27CAF-4A7A-40AA-BA58-4BA12AD9CEE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollerChecker", "WPF\CollerChecker\CollerChecker.csproj", "{EC2520FF-318A-4925-8330-09FB7E2E96AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorChecker", "WPF\CollerChecker\ColorChecker.csproj", "{EC2520FF-318A-4925-8330-09FB7E2E96AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
