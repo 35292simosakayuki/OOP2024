@@ -28,6 +28,8 @@ namespace RssReader {
             cbRssUrl.DropDownStyle = ComboBoxStyle.DropDown;
             cbRssUrl.SelectedIndex = -1;
             cbRssUrl.Text = "";
+            BackColor=Color.LightGreen;
+
         }
 
         private void InitializecatagoryUrlPairs() {
@@ -163,6 +165,15 @@ namespace RssReader {
 
         private async void Form1_Load(object sender, EventArgs e) {
             await wbRss.EnsureCoreWebView2Async(null);
+            lbRssTitle.BackColor=Color.LightYellow;
+            lbFavoriteItems.BackColor=Color.LightYellow;
+            cbRssUrl.BackColor=Color.LightYellow;
+            tbRssName.BackColor=Color.LightYellow;
+            btDelete.BackColor=Color.LightYellow;
+            btFavorite.BackColor=Color.LightYellow;
+            btGet.BackColor=Color.LightYellow;
+            btJoin.BackColor=Color.LightYellow;
+            
         }
         private void btDelete_Click(object sender, EventArgs e) {
             if (lbRssTitle.SelectedIndex >= 0) {
