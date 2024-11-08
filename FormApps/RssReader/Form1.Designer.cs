@@ -24,7 +24,7 @@ namespace RssReader {
         /// デザイナー サポートに必要なメソッドです。このメソッドの内容を
         /// コード エディターで変更しないでください。
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent() { 
             this.tbRssName = new System.Windows.Forms.TextBox();
             this.btGet = new System.Windows.Forms.Button();
             this.lbRssTitle = new System.Windows.Forms.ListBox();
