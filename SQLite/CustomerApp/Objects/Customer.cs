@@ -11,9 +11,10 @@ namespace CustomerApp.Objects {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
+        public string Address { get; set; }
 
         public override string ToString() {
-            return $"{Id}   {Name}   {Phone}";
+            return $"{Id}   {Name}   {Phone}   {Address}";
         }
     }
 }
