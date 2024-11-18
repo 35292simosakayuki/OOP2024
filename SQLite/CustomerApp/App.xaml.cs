@@ -12,7 +12,7 @@ namespace CustomerApp {
     /// </summary>
     public partial class App : Application {
         static string databaseName = "Shop.db";
-        static string folderPass = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        static string  folderPass = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public static string databasePass = System.IO.Path.Combine(folderPass, databaseName);
     }
 }
