@@ -1,9 +1,11 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace CustomerApp.Objects {
     public class Customer {
@@ -22,6 +24,24 @@ namespace CustomerApp.Objects {
         /// 住所
         /// </summary>
         public string Address { get; set; }
+
+
+        public byte[] ImagePath { get; set; }
+
+        public BitmapImage Image {
+            get{
+                if (ImagePath == null||ImagePath.Length==0)
+                    return null;
+                using (var stream = new MemoryStream(ImagePath)) { 
+                var bitmap=new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.StreamSource = stream;
+                    bitmap.CacheOption=BitmapCacheOption.OnLoad;
+                    bitmap.EndInit();
+                    return bitmap;
+                }
+            }
+        }
 
         public override string ToString() {
             return $"{Id}  {Name}  {Phone}  {Address}";
