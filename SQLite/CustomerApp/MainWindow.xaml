@@ -30,9 +30,9 @@
                 
                 <TextBlock Text="画像" Grid.Row="3" Grid.Column="0"  VerticalAlignment="Center"/>
                 <Button Content="画像を添付" Grid.Row="3" Grid.Column="1" x:Name="PictureButton" Click="PictureButton_Click" Margin="2"/>
-                <TextBlock Text="画像" Grid.Row="4" Grid.Column="0"  VerticalAlignment="Center"/>
+                
                 <Button Content="画像をクリア" Grid.Row="4" Grid.Column="1" x:Name="PictureClearButton" Click="PictureClearButton_Click" Margin="2"/>
-                <Image x:Name="ImagePreview" Width="100" Height="100" Margin="5" Grid.Row="5" Grid.Column="2"/>
+                <Image x:Name="CustomerImage" Width="100" Height="100" Margin="5" Grid.Row="5" Grid.Column="2"/>
 
             </Grid>
 

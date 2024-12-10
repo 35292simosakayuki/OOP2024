@@ -26,13 +26,13 @@ namespace CustomerApp.Objects {
         public string Address { get; set; }
 
 
-        public byte[] ImagePath { get; set; }
+        public byte[] ImageData { get; set; }
 
         public BitmapImage Image {
             get{
-                if (ImagePath == null||ImagePath.Length==0)
+                if (ImageData == null||ImageData.Length==0)
                     return null;
-                using (var stream = new MemoryStream(ImagePath)) { 
+                using (var stream = new MemoryStream(ImageData)) { 
                 var bitmap=new BitmapImage();
                     bitmap.BeginInit();
                     bitmap.StreamSource = stream;
