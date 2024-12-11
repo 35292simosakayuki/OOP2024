@@ -29,11 +29,11 @@ namespace CustomerApp.Objects {
         public byte[] ImageData { get; set; }
 
         public BitmapImage Image {
-            get{
+            get {
                 if (ImageData == null||ImageData.Length==0)
                     return null;
-                using (var stream = new MemoryStream(ImageData)) { 
-                var bitmap=new BitmapImage();
+                using (var stream = new MemoryStream(ImageData)) {
+                    var bitmap = new BitmapImage();
                     bitmap.BeginInit();
                     bitmap.StreamSource = stream;
                     bitmap.CacheOption=BitmapCacheOption.OnLoad;
