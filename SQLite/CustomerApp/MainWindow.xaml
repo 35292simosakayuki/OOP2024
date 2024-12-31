@@ -5,51 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomerApp"
         mc:Ignorable="d"
-        Title="CustomerApp" Height="500" Width="300" Loaded="Window_Loaded" Background="#F4F4F4">
+        Title="CustomerApp" Height="500" Width="350" Loaded="Window_Loaded" Background="#F4F4F4">
     <Grid>
         <StackPanel Margin="10">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="8*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="名前" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold" Foreground="#333333"/>
-                <TextBox x:Name="NameTextBox"  Grid.Row="0" Grid.Column="1" Margin="2" />
-                <TextBlock Text="電話番号" Grid.Row="1" Grid.Column="0"  VerticalAlignment="Center"  FontWeight="Bold" Foreground="#333333"/>
-                <TextBox x:Name="PhoneTextBox"  Grid.Row="1" Grid.Column="1"  Margin="2" />
-                <TextBlock Text="住所" Grid.Row="2" Grid.Column="0"  VerticalAlignment="Center"  FontWeight="Bold" Foreground="#333333"/>
-                <TextBox x:Name="AddressTextBox"  Grid.Row="2" Grid.Column="1"  Margin="2"/>
 
-                <TextBlock Text="画像" Grid.Row="3" Grid.Column="0"  VerticalAlignment="Center" FontWeight="Bold" Foreground="#333333"/>
-                <Button Content="画像を添付" Grid.Row="3" Grid.Column="1" x:Name="SelectImageButton" Click="SelectImageButton_Click" Margin="2" Background="#4CAF50" Foreground="White" FontWeight="Bold" />
+                
+                <TextBlock Text="名前" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="#333333"/>
+                <TextBox x:Name="NameTextBox"  Grid.Row="0" Grid.Column="1" Margin="5" FontSize="14" Padding="8"/>
 
-                <Button Content="画像をクリア" Grid.Row="4" Grid.Column="1" x:Name="ClearButton" Click="ClearButton_Click" Margin="2"/>
-                <Image x:Name="CustomerImage" Width="100" Height="100" Margin="5" Grid.Row="5" Grid.Column="2"/>
+                
+                <TextBlock Text="電話番号" Grid.Row="1" Grid.Column="0"  VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="#333333"/>
+                <TextBox x:Name="PhoneTextBox"  Grid.Row="1" Grid.Column="1"  Margin="5" FontSize="14" Padding="8"/>
+
+                
+                <TextBlock Text="住所" Grid.Row="2" Grid.Column="0"  VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="#333333"/>
+                <TextBox x:Name="AddressTextBox"  Grid.Row="2" Grid.Column="1"  Margin="5" FontSize="14" Padding="8"/>
+
+                
+                <TextBlock Text="画像" Grid.Row="3" Grid.Column="0"  VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="#333333"/>
+                <Button Content="画像を添付" Grid.Row="3" Grid.Column="1" x:Name="SelectImageButton" Click="SelectImageButton_Click" Margin="5" Background="#4CAF50" Foreground="White" FontWeight="Bold" Padding="10,5"/>
+
+                
+                <Button Content="画像をクリア" Grid.Row="4" Grid.Column="1" x:Name="ClearButton" Click="ClearButton_Click"  Background="#F44336" Foreground="White" Margin="5" Padding="10,5"/>
+
+                
+                <Image x:Name="CustomerImage" Width="100" Height="100" Margin="5" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center"/>
 
             </Grid>
 
-            <Button Content="登録" x:Name="ResistButton" Click="ResistButton_Click"  Margin="2"/>
-            <Button Content="削除" x:Name="DeleteButton" Click="DeleteButton_Click"  Margin="2" Background="#F44336" Foreground="White" FontWeight="Bold"/>
-            <Button Content="更新" x:Name="UpdateButton" Click="UpdateButton_Click" Margin="2"/>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                <Button Content="登録" x:Name="ResistButton" Click="ResistButton_Click"  Margin="5" Padding="10,5" Background="#4CAF50" Foreground="White" FontWeight="Bold"/>
+                <Button Content="削除" x:Name="DeleteButton" Click="DeleteButton_Click"  Margin="5" Padding="10,5" Background="#F44336" Foreground="White" FontWeight="Bold"/>
+                <Button Content="更新" x:Name="UpdateButton" Click="UpdateButton_Click" Margin="5" Padding="10,5" Background="#2196F3" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
 
-            <TextBox x:Name="SearchTextBox" FontSize="20" TextChanged="SearchTextBox_TextChanged"/>
+            
+            <TextBox x:Name="SearchTextBox" FontSize="20" Margin="5" Padding="10" TextChanged="SearchTextBox_TextChanged"  HorizontalAlignment="Stretch"/>
 
+            
             <ListView x:Name="CustomerListView" Margin="0,5,0,0" Height="134" SelectionChanged="ListView_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Id}"/>
-                            <TextBlock Text="{Binding Name}" FontSize="20"/>
-                            <TextBlock Text="{Binding Phone}" Foreground="Blue"/>
-                            <TextBlock Text="{Binding Address}" Foreground="Green"/>
+                            <TextBlock Text="{Binding Id}" FontSize="12" Foreground="#666666"/>
+                            <TextBlock Text="{Binding Name}" FontSize="18" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Phone}" Foreground="Blue" FontSize="14"/>
+                            <TextBlock Text="{Binding Address}" Foreground="Green" FontSize="14"/>
                             <Image Width="100" Height="100" Margin="5" Source="{Binding Image}" />
                         </StackPanel>
                     </DataTemplate>
@@ -58,4 +73,3 @@
         </StackPanel>
     </Grid>
 </Window>
-
